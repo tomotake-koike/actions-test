@@ -38,7 +38,7 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=sha,prefix={{date 'YYYYMM'}}-,suffix=,format=short
+            type=sha,prefix=${{ env.OCP_VERSION }}-{{date 'YYYYMM'}}-,suffix=,format=short
 
       - name: Build (and push if on main)
         id: docker_build
