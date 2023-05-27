@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./ocp-cli
-          file: ./ocp-cli/Dockerfile
+          file: Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           build-args: VERSION=${{ env.OCP_VERSION }}
           tags: ${{ steps.meta.outputs.tags }}
@@ -55,3 +55,10 @@ jobs:
           # load: true
           push: ${{ github.ref == 'refs/heads/main' }}
 
+      - name: Version Check
+        id: version_check
+        uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@v1.5
+        with:
+          image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
+          first-arg: 'version'
+        
