@@ -60,7 +60,7 @@ jobs:
     needs: build-image
     # runs-on: ubuntu-latest
     name: Check OpenShift CLI Container Image
-    uses: 'tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions/action.yml@v1.5'
+    uses: 'tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@v1.6'
     with:
       image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
       first-arg: 'version'
