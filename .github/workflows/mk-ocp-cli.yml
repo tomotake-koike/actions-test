@@ -55,14 +55,13 @@ jobs:
           # load: true
           push: ${{ github.ref == 'refs/heads/main' }}
 
-  chek-image:
-    runs-on: ubuntu-latest
+  check-image:
+    if: success()
+    needs: build-image
+    # runs-on: ubuntu-latest
     name: Check OpenShift CLI Container Image
-    steps:
-      - name: Version Check
-        id: version_check
-        uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@v1.5
-        with:
-          image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
-          first-arg: 'version'
+    uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@v1.5
+    with:
+      image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
+      first-arg: 'version'
         
