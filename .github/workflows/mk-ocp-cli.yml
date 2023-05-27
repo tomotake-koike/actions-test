@@ -56,7 +56,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: check
-        run: docker run ${{ steps.meta.outputs.tags[0] }} version
+        run: docker run ${{ steps.meta.outputs.tags }}[0] version
         shell: bash
 #      - id: foo
 #        uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@main
