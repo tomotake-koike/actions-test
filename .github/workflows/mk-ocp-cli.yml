@@ -13,7 +13,7 @@ env:
   
 jobs:
   build-image:
-    runs-on: ubuntu-latest
+    runs-on: [ self-hosted, linux] # ubuntu-latest
     name: Buld OpenShift CLI Container Image
     steps:
       - name: checkout
