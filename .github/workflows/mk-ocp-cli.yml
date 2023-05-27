@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'ocp-cli/**'
-      - '.github/workflows/mk-ocp-cli.yml'
+    # paths:
+    #  - 'ocp-cli/**'
+    #  - '.github/workflows/mk-ocp-cli.yml'
 
 env:
   IMAGE: ghcr.io/tomotake-koike/ocp-cli
