@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: ./ocp-cli
-          file: Dockerfile
+          file: ./ocp-cli/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           build-args: VERSION=${{ env.OCP_VERSION }}
           tags: ${{ steps.meta.outputs.tags }}
