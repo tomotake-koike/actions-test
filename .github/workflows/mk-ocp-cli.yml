@@ -2,7 +2,7 @@ name: Make_OCP_CLI
 on:
   push:
     branches:
-      - master
+      - main
     # paths:
     #  - 'ocp-cli/**'
     #  - '.github/workflows/mk-ocp-cli.yml'
