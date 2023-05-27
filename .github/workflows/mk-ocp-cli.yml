@@ -56,26 +56,5 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: check
-        run: for i in ${{ steps.meta.outputs.tags }} ; do docker run \$i version ; done
+        run: docker run ${{ env.IMAGE }}:${{ steps.meta.outputs.version }} version
         shell: bash
-#      - id: foo
-#        uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@main
-        # uses: actions/hello-world-docker-action@main
-#        with:
-#          image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
-#          first-arg: version
-
-#           who-to-greet: 'Mona the Octocat'
-#       - run: echo random-number ${{ steps.foo.outputs.random-number }}
-#         shell: bash
-        
-#      - name: Check OpenShift CLI Container Image
-#        id: check-image
-#        uses: "composite"
-        
-    # uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions/action.yml@v1.7
-#    uses: tomotake-koike/actions-test/hello-world-docker-action@v1.7
-#    with:
-#      image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
-#      first-arg: 'version'
-        
