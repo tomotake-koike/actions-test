@@ -1,0 +1,21 @@
+# action.yml
+name: 'Version Check'
+description: 'OpenShift Installer Version Check'
+inputs:
+  image:
+    description: 'ocp-cli container image url'
+    required: true
+  first-arg:
+    description: 'openshift-instal first arg'
+    required: true
+    default: 'version'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+  uname: 
+    description: 'uname result'
+runs:
+  using: 'docker'
+  image: ${{ inputs.image }}
+  args:
+    - ${{ inputs.first-arg }}
