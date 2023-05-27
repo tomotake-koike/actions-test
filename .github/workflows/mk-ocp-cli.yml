@@ -56,11 +56,14 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
 
       - id: foo
-        uses: actions/hello-world-docker-action@main
+        uses: tomotake-koike/actions-test/.github/workflows/mk-ocp-cli-actions@main
+        # uses: actions/hello-world-docker-action@main
         with:
-          who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
+          image: ${{ env.IMAGE }}:${{ steps.meta.outputs.tags }}
+          first-arg: version
+#           who-to-greet: 'Mona the Octocat'
+#       - run: echo random-number ${{ steps.foo.outputs.random-number }}
+#         shell: bash
         
 #      - name: Check OpenShift CLI Container Image
 #        id: check-image
