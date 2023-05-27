@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: Ping
         run: ping -c 10 192.168.29.62
+        
+      - name: Ping Shell
+        run: sh /tmp/ping.sh
