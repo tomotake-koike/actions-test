@@ -9,7 +9,7 @@ on:
 
 env:
   IMAGE: ghcr.io/tomotake-koike/ocp-cli
-  OCP_VERSION: "4.13.0"
+  OCP_VERSION: "4.13.1"
   
 jobs:
   build-image:
