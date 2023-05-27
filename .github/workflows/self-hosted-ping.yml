@@ -1,0 +1,14 @@
+name: Ping
+
+on:
+  push:
+    paths:
+    - '.github/workflows/self-hosted-ping.yml'
+
+jobs:
+  ping:
+    runs-on: [ self-hosted, linux] # ubuntu-latest
+    name: Test in self-host network
+    steps:
+      - name: Ping
+        run: ping -c 10 192.168.29.62
